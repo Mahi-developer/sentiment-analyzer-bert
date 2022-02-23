@@ -9,7 +9,7 @@ class Analyzer:
         self.created_dtm = datetime.now()
         self.modified_dtm = None
 
-    async def analyze(self, reviews, tokenizer):
+    def analyze(self, reviews, tokenizer):
         predict_input = tokenizer(
             reviews,
             max_length=256,
@@ -26,7 +26,7 @@ class Analyzer:
         self.modified_dtm = datetime.now()
         return label
 
-    async def generate_response(self, labels):
+    def generate_response(self, labels):
         total_reviews = len(labels)
         positive_reviews = (labels == 1).sum()
         negative_reviews = (labels == 0).sum()
