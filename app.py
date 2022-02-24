@@ -36,7 +36,7 @@ def analyze():
             tokenizer=tokenizer,
         )
         resp = bert_analyzer.generate_response(labels)
-    return response.json(resp)
+    return resp
 
 
-app.run()
+app.run(host='0.0.0.0', port=8080)
